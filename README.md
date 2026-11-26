@@ -7,5 +7,5 @@
 **当前进度**　项目处于产品规划与视觉设计系统定稿阶段。顾客端底部五个入口依次为 **逛花｜花店｜挑花｜消息｜我的**。
 
 - 商业方向、五个入口的用途和待讨论的问题见 [产品共识](docs/product.md)。
-- **设计系统（可直接导入 Claude Design / Open Design）**：[DESIGN.md](design-system/DESIGN.md) 与 [tokens.json](design-system/tokens.json)，仅定义配色、字体、材质与通用原子控件，不预设具体页面布局。
+- **设计系统（OpenDesign / Claude Design 原生适配）**：[DESIGN.md](design-system/DESIGN.md)、[tokens.css](design-system/tokens.css)、[tokens.json](design-system/tokens.json) 与 [USAGE.md](design-system/USAGE.md)，仅定义配色、字体、四季光晕材质与通用原子控件，不预设具体页面布局。
 - **离线元件样张板**：双击打开 [design-system/preview.html](design-system/preview.html)，可离线核对浅/深双主题色板、字号、毛玻璃光晕材质及原子控件状态。

@@ -1,0 +1,223 @@
+/* ─────────────────────────────────────────────────────────────────────────
+ * design-system/tokens.css
+ *
+ * Canonical compiled CSS custom properties for 芙洛拉 Flora Design System v2.3.
+ * Implements all shared OpenDesign TOKEN_SCHEMA slots (A1, A2, B-slot) plus
+ * Flora brand, glassmorphism, floating dock, and seasonal wash tokens.
+ *
+ * Synced 1:1 with design-system/tokens.json and design-system/DESIGN.md.
+ * ───────────────────────────────────────────────────────────────────────── */
+
+:root {
+  /* ─── OpenDesign Shared Schema: Surface (A1 / B-slot) ─────────── */
+  --bg: #FFFFFF;
+  --surface: #FFFFFF;
+  --surface-warm: #F6F6F8; /* Neutral studio backdrop for bouquet photos — zero pink cast */
+
+  /* ─── OpenDesign Shared Schema: Foreground (A1 / B-slot) ──────── */
+  --fg: #0B051D;
+  --fg-2: #5E5868;
+  --muted: #5E5868;
+  --meta: #736D7E;
+
+  /* ─── OpenDesign Shared Schema: Borders (A1 / B-slot) ─────────── */
+  --border: #E9E5EE;
+  --border-soft: #EFEBF2;
+
+  /* ─── OpenDesign Shared Schema: Accent (A1 / A2) ──────────────── */
+  /* Signature Flora Pink; ALWAYS paired with deep ink #0B051D, never white. */
+  --accent: #FFB3C7;
+  --accent-on: #0B051D;
+  --accent-hover: #F49CB4;
+  --accent-active: #EA89A4;
+
+  /* ─── OpenDesign Shared Schema: Semantic (A2) ─────────────────── */
+  --success: #156B40;
+  --warn: #875000;
+  --danger: #B51D38;
+
+  /* ─── OpenDesign Shared Schema: Typography (A1 / A2) ──────────── */
+  --font-display: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", "Segoe UI", sans-serif;
+  --font-body: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", "Segoe UI", sans-serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Monaco, Consolas, monospace;
+
+  --text-xs: 0.75rem;     /* 12px — badges, tags */
+  --text-sm: 0.8125rem;   /* 13px — meta, distance, subtitles */
+  --text-base: 0.9375rem; /* 15px — body copy & buttons */
+  --text-lg: 1rem;        /* 16px — item titles & row prices */
+  --text-xl: 1.0625rem;   /* 17px — subheadings */
+  --text-2xl: 1.25rem;    /* 20px — section headers */
+  --text-3xl: 1.5rem;     /* 24px — detail hero price */
+  --text-4xl: 1.625rem;   /* 26px — screen large title */
+
+  --leading-body: 1.53;
+  --leading-tight: 1.28;
+  --tracking-display: -0.02em;
+
+  /* ─── OpenDesign Shared Schema: Spacing (A2 / A1-structure) ───── */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+
+  --section-y-desktop: 40px;
+  --section-y-tablet: 32px;
+  --section-y-phone: 24px;
+
+  /* ─── OpenDesign Shared Schema: Radius (A2) ───────────────────── */
+  --radius-sm: 12px;
+  --radius-md: 16px;
+  --radius-lg: 20px;
+  --radius-pill: 9999px;
+
+  /* ─── OpenDesign Shared Schema: Elevation & Focus (A2) ────────── */
+  --elev-flat: none;
+  --elev-ring: 0 0 0 1px var(--border);
+  --elev-raised: 0 8px 24px rgba(11, 5, 29, 0.07);
+  --focus-ring: 0 0 0 2px #0B051D;
+
+  /* ─── OpenDesign Shared Schema: Motion (A2) ───────────────────── */
+  --motion-fast: 160ms;
+  --motion-base: 280ms;
+  --ease-standard: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* ─── OpenDesign Shared Schema: Layout (A1-structure) ─────────── */
+  --container-max: 430px;
+  --container-gutter-desktop: 24px;
+  --container-gutter-tablet: 20px;
+  --container-gutter-phone: 20px;
+
+  /* ─── Flora Brand & Semantic Extensions ───────────────────────── */
+  --flora-surface-blush: #FFF2F6;
+  --flora-surface-glass: rgba(255, 255, 255, 0.78);
+  --flora-surface-dark: #0B051D;
+  --flora-border-control: #D4CEDC;
+  --flora-border-glass: rgba(255, 255, 255, 0.90);
+
+  /* Primary full-width CTA (obsidian ink in light mode, Flora Pink in dark mode) */
+  --flora-cta-bg: #0B051D;
+  --flora-cta-fg: #FFFFFF;
+  --flora-cta-pressed: #1E1636;
+
+  /* Iris links/progress & Lime highlight badge */
+  --flora-accent-iris: #5B3FD9;
+  --flora-accent-iris-soft: #F2EEFF;
+  --flora-highlight-bg: #DAF79A;
+  --flora-highlight-fg: #1E3308;
+
+  /* Paired semantic soft tints */
+  --flora-success-bg: #E7F6EE;
+  --flora-warning-bg: #FFF3DC;
+  --flora-error-bg: #FDECEF;
+  --flora-disabled-bg: #F2F0F5;
+  --flora-disabled-fg: #767080;
+
+  /* Floating pill dock & bottom sheet chrome */
+  --flora-scrim: rgba(11, 5, 29, 0.42);
+  --flora-dock-bg: rgba(255, 255, 255, 0.92);
+  --flora-dock-active-pill: #EFEFF4;
+  --flora-radius-xs: 8px;
+  --flora-radius-xl: 24px;
+  --flora-radius-dock: 32px;
+  --flora-shadow-card: 0 2px 10px rgba(11, 5, 29, 0.04);
+  --flora-shadow-dock: 0 10px 30px rgba(11, 5, 29, 0.11);
+  --flora-shadow-sheet: 0 -12px 36px rgba(11, 5, 29, 0.16);
+  --flora-motion-sheet: 340ms;
+
+  /* Seasonal top atmospheric wash slot — default: Spring (春 · 樱雾粉紫) */
+  --flora-wash-start: #CFC8EA;
+  --flora-wash-mid: #F3C8DC;
+  --flora-wash-end: #FFFFFF;
+}
+
+/* ─── Seasonal Atmospheric Wash Overrides (Light) ───────────────── */
+[data-season="summer"] {
+  --flora-wash-start: #C8E4EC;
+  --flora-wash-mid: #D4ECDD;
+  --flora-wash-end: #FFFFFF;
+}
+
+[data-season="autumn"] {
+  --flora-wash-start: #F3D5B8;
+  --flora-wash-mid: #F2D0D6;
+  --flora-wash-end: #FFFFFF;
+}
+
+[data-season="winter"] {
+  --flora-wash-start: #D5DCEF;
+  --flora-wash-mid: #E7D4E8;
+  --flora-wash-end: #FFFFFF;
+}
+
+/* ─── Dark Theme Overrides ──────────────────────────────────────── */
+[data-theme="dark"] {
+  --bg: #0B051D;
+  --surface: #1D1632;
+  --surface-warm: #161028;
+  --fg: #F6F3FA;
+  --fg-2: #C6BCD2;
+  --muted: #C6BCD2;
+  --meta: #9B91AA;
+  --border: #332948;
+  --border-soft: #28203B;
+  --accent: #FFB3C7;
+  --accent-on: #0B051D;
+  --accent-hover: #F49CB4;
+  --accent-active: #EA89A4;
+  --success: #8AE0AC;
+  --warn: #FFD58A;
+  --danger: #FF9FB3;
+  --elev-raised: 0 8px 28px rgba(0, 0, 0, 0.36);
+  --focus-ring: 0 0 0 2px #FFB3C7;
+
+  --flora-surface-blush: #26182D;
+  --flora-surface-glass: rgba(31, 23, 50, 0.76);
+  --flora-surface-dark: #1D1632;
+  --flora-border-control: #4D4266;
+  --flora-border-glass: rgba(255, 255, 255, 0.12);
+
+  --flora-cta-bg: #FFB3C7;
+  --flora-cta-fg: #0B051D;
+  --flora-cta-pressed: #F49CB4;
+
+  --flora-accent-iris: #BBA9FF;
+  --flora-accent-iris-soft: #261E45;
+  --flora-highlight-bg: #D5F58E;
+  --flora-highlight-fg: #1A2B08;
+
+  --flora-success-bg: #143025;
+  --flora-warning-bg: #362712;
+  --flora-error-bg: #3B1826;
+  --flora-disabled-bg: #211B33;
+  --flora-disabled-fg: #8E849E;
+
+  --flora-scrim: rgba(5, 2, 14, 0.68);
+  --flora-dock-bg: rgba(26, 20, 44, 0.90);
+  --flora-dock-active-pill: #30274A;
+  --flora-shadow-card: 0 2px 12px rgba(0, 0, 0, 0.28);
+  --flora-shadow-dock: 0 12px 34px rgba(0, 0, 0, 0.48);
+  --flora-shadow-sheet: 0 -14px 40px rgba(0, 0, 0, 0.56);
+
+  --flora-wash-start: #2C2050;
+  --flora-wash-mid: #45213D;
+  --flora-wash-end: #0B051D;
+}
+
+[data-theme="dark"][data-season="summer"] {
+  --flora-wash-start: #193245;
+  --flora-wash-mid: #1B3A32;
+}
+
+[data-theme="dark"][data-season="autumn"] {
+  --flora-wash-start: #462E20;
+  --flora-wash-mid: #452531;
+}
+
+[data-theme="dark"][data-season="winter"] {
+  --flora-wash-start: #212946;
+  --flora-wash-mid: #372342;
+}

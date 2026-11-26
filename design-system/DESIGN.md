@@ -1,9 +1,66 @@
+---
+name: 芙洛拉 Flora
+category: E-Commerce & Mobile Lifestyle
+surface: web
+description: "纯白画廊 × 轻雾四季光晕 × 深紫墨黑锚点 × 芙洛拉柔粉点缀的移动端精品花店设计系统（微信小程序首发，兼容 iOS / Android）。"
+colors:
+  background: "#FFFFFF"
+  surface: "#FFFFFF"
+  surface-subtle: "#F6F6F8"
+  surface-blush: "#FFF2F6"
+  border: "#E9E5EE"
+  divider: "#EFEBF2"
+  ink: "#0B051D"
+  secondary: "#5E5868"
+  muted: "#736D7E"
+  brand-primary: "#FFB3C7"
+  brand-pressed: "#F49CB4"
+  cta-primary: "#0B051D"
+  accent-iris: "#5B3FD9"
+  highlight-lime: "#DAF79A"
+  success: "#156B40"
+  warning: "#875000"
+  error: "#B51D38"
+  wash-spring-start: "#CFC8EA"
+  wash-spring-mid: "#F3C8DC"
+typography:
+  display:
+    fontFamily: "-apple-system, BlinkMacSystemFont, PingFang SC, Hiragino Sans GB, Noto Sans SC, sans-serif"
+    fontSize: "26px"
+    fontWeight: 700
+    lineHeight: "34px"
+  section:
+    fontFamily: "-apple-system, BlinkMacSystemFont, PingFang SC, Hiragino Sans GB, Noto Sans SC, sans-serif"
+    fontSize: "20px"
+    fontWeight: 700
+    lineHeight: "28px"
+  body:
+    fontFamily: "-apple-system, BlinkMacSystemFont, PingFang SC, Hiragino Sans GB, Noto Sans SC, sans-serif"
+    fontSize: "15px"
+    fontWeight: 400
+    lineHeight: "23px"
+  caption:
+    fontFamily: "-apple-system, BlinkMacSystemFont, PingFang SC, Hiragino Sans GB, Noto Sans SC, sans-serif"
+    fontSize: "11px"
+    fontWeight: 400
+    lineHeight: "16px"
+rounded:
+  sm: "12px"
+  md: "16px"
+  lg: "20px"
+  xl: "24px"
+  dock: "32px"
+  pill: "9999px"
+---
+
 # 芙洛拉 Flora 移动端设计系统（DESIGN.md）
 
-> 适用于 **Claude Design / Open Design** 导入，也作为微信小程序首发及后续 iOS / Android 开发的视觉语言单一事实来源。
+> Category: E-Commerce & Mobile Lifestyle
+
+> 适用于 **OpenDesign / Claude Design** 导入，也作为微信小程序首发及后续 iOS / Android 开发的视觉语言单一事实来源。
 > **边界声明**：本文件只定义色彩、字体、材质、间距、圆角、阴影、动效与通用原子控件规范，**不预设任何具体业务页面的信息架构或首屏布局**。导入设计工具后，再结合 [产品共识](../docs/product.md) 逐页按真实需求设计与迭代。
 
-配套参数见 [tokens.json](tokens.json)；双击离线打开 [preview.html](preview.html) 可直接核对色板、字号与原子控件样式（不含业务页面拼装）。
+配套文件：[tokens.css](tokens.css)（OpenDesign 标准 CSS 变量）、[tokens.json](tokens.json)（结构化语义参数）、[USAGE.md](USAGE.md)（Agent 阅读路由）；双击离线打开 [preview.html](preview.html) 可直接核对色板、字号、四季光晕与原子控件样式。
 
 ---
 
