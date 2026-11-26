@@ -1,0 +1,1129 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>芙洛拉 Flora · 设计系统元件样张板（v2.2）</title>
+  <style>
+    :root {
+      /* Synced 1:1 with design-system/tokens.json (light) */
+      --canvas: #FFFFFF;
+      --surface-subtle: #F6F6F8;
+      --surface-blush: #FFF2F6;
+      --surface-elevated: #FFFFFF;
+      --surface-glass: rgba(255, 255, 255, 0.78);
+      --surface-dark: #0B051D;
+      --wash-start: #CFC8EA;
+      --wash-mid: #F3C8DC;
+      --wash-end: #FFFFFF;
+      --ink-primary: #0B051D;
+      --ink-secondary: #5E5868;
+      --ink-tertiary: #736D7E;
+      --ink-inverse: #FFFFFF;
+      --brand-pink: #FFB3C7;
+      --brand-pink-pressed: #F49CB4;
+      --on-brand: #0B051D;
+      --cta-primary-bg: #0B051D;
+      --cta-primary-fg: #FFFFFF;
+      --cta-primary-pressed: #1E1636;
+      --accent-iris: #5B3FD9;
+      --accent-iris-soft: #F2EEFF;
+      --disabled-bg: #F2F0F5;
+      --disabled-ink: #767080;
+      --border-hairline: #EFEBF2;
+      --border-card: #E9E5EE;
+      --border-control: #D4CEDC;
+      --border-focus: #0B051D;
+      --border-glass: rgba(255, 255, 255, 0.90);
+      --success-fg: #156B40;
+      --success-bg: #E7F6EE;
+      --highlight-fg: #1E3308;
+      --highlight-bg: #DAF79A;
+      --warning-fg: #875000;
+      --warning-bg: #FFF3DC;
+      --error-fg: #B51D38;
+      --error-bg: #FDECEF;
+      --scrim: rgba(11, 5, 29, 0.42);
+      --dock-bg: rgba(255, 255, 255, 0.92);
+      --dock-active-pill: #EFEFF4;
+
+      --shadow-card: 0 2px 10px rgba(11, 5, 29, 0.04);
+      --shadow-glass: 0 8px 24px rgba(11, 5, 29, 0.07);
+      --shadow-dock: 0 10px 30px rgba(11, 5, 29, 0.11);
+      --shadow-sheet: 0 -12px 36px rgba(11, 5, 29, 0.16);
+
+      --radius-xs: 8px;
+      --radius-sm: 12px;
+      --radius-md: 16px;
+      --radius-lg: 20px;
+      --radius-xl: 24px;
+      --radius-dock: 32px;
+      --radius-pill: 999px;
+
+      --ease-glide: cubic-bezier(0.22, 1, 0.36, 1);
+      --ms-press: 160ms;
+      --ms-glide: 280ms;
+      --ms-sheet: 340ms;
+
+      --page-bg: #F7F6FA;
+      --font-sans: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", "Segoe UI", sans-serif;
+    }
+
+    [data-theme="dark"] {
+      /* Synced 1:1 with design-system/tokens.json (dark) */
+      --canvas: #0B051D;
+      --surface-subtle: #161028;
+      --surface-blush: #26182D;
+      --surface-elevated: #1D1632;
+      --surface-glass: rgba(31, 23, 50, 0.76);
+      --surface-dark: #1D1632;
+      --wash-start: #2C2050;
+      --wash-mid: #45213D;
+      --wash-end: #0B051D;
+      --ink-primary: #F6F3FA;
+      --ink-secondary: #C6BCD2;
+      --ink-tertiary: #9B91AA;
+      --ink-inverse: #0B051D;
+      --brand-pink: #FFB3C7;
+      --brand-pink-pressed: #F49CB4;
+      --on-brand: #0B051D;
+      --cta-primary-bg: #FFB3C7;
+      --cta-primary-fg: #0B051D;
+      --cta-primary-pressed: #F49CB4;
+      --accent-iris: #BBA9FF;
+      --accent-iris-soft: #261E45;
+      --disabled-bg: #211B33;
+      --disabled-ink: #8E849E;
+      --border-hairline: #28203B;
+      --border-card: #332948;
+      --border-control: #4D4266;
+      --border-focus: #FFB3C7;
+      --border-glass: rgba(255, 255, 255, 0.12);
+      --success-fg: #8AE0AC;
+      --success-bg: #143025;
+      --highlight-fg: #1A2B08;
+      --highlight-bg: #D5F58E;
+      --warning-fg: #FFD58A;
+      --warning-bg: #362712;
+      --error-fg: #FF9FB3;
+      --error-bg: #3B1826;
+      --scrim: rgba(5, 2, 14, 0.68);
+      --dock-bg: rgba(26, 20, 44, 0.90);
+      --dock-active-pill: #30274A;
+
+      --shadow-card: 0 2px 12px rgba(0, 0, 0, 0.28);
+      --shadow-glass: 0 8px 28px rgba(0, 0, 0, 0.36);
+      --shadow-dock: 0 12px 34px rgba(0, 0, 0, 0.48);
+      --shadow-sheet: 0 -14px 40px rgba(0, 0, 0, 0.56);
+
+      --page-bg: #070312;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { font-size: 16px; }
+    html.large-type { font-size: 20px; }
+
+    body {
+      margin: 0;
+      background: var(--page-bg);
+      color: var(--ink-primary);
+      font-family: var(--font-sans);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      transition: background var(--ms-glide) var(--ease-glide), color var(--ms-glide) var(--ease-glide);
+    }
+
+    button, input { font-family: inherit; color: inherit; }
+
+    button {
+      cursor: pointer;
+      border: 0;
+      background: transparent;
+      padding: 0;
+      transition: transform var(--ms-press) var(--ease-glide),
+                  background-color var(--ms-glide) var(--ease-glide),
+                  border-color var(--ms-glide) var(--ease-glide),
+                  color var(--ms-glide) var(--ease-glide),
+                  box-shadow var(--ms-glide) var(--ease-glide);
+    }
+
+    button:active:not(:disabled) { transform: scale(0.98); }
+    button:disabled { cursor: not-allowed; }
+    :focus-visible { outline: 2px solid var(--border-focus); outline-offset: 2px; }
+    .tabular { font-variant-numeric: tabular-nums; }
+    .hidden { display: none !important; }
+
+    /* ===== Top Bar ===== */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      background: var(--dock-bg);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border-hairline);
+    }
+
+    .topbar-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .brand-row { display: flex; align-items: center; gap: 12px; }
+
+    .brand-mark {
+      background: var(--brand-pink);
+      color: var(--on-brand);
+      font-weight: 800;
+      font-size: 15px;
+      padding: 6px 14px;
+      border-radius: var(--radius-sm);
+      letter-spacing: -0.02em;
+    }
+
+    .brand-sub { font-size: 13px; color: var(--ink-secondary); }
+
+    .toolbar { display: flex; gap: 8px; flex-wrap: wrap; }
+
+    .tool-btn {
+      min-height: 36px;
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--border-card);
+      background: var(--surface-elevated);
+      color: var(--ink-primary);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .tool-btn[aria-pressed="true"] {
+      background: var(--cta-primary-bg);
+      color: var(--cta-primary-fg);
+      border-color: transparent;
+    }
+
+    /* ===== Main Layout ===== */
+    main {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 28px 24px 80px;
+      display: grid;
+      gap: 24px;
+    }
+
+    .intro {
+      padding: 4px 2px;
+    }
+
+    .intro h1 {
+      margin: 0 0 6px;
+      font-size: 1.625rem;
+      line-height: 1.3;
+      letter-spacing: -0.02em;
+    }
+
+    .intro p {
+      margin: 0;
+      font-size: 0.9375rem;
+      color: var(--ink-secondary);
+      max-width: 72ch;
+    }
+
+    .panel {
+      background: var(--canvas);
+      border: 1px solid var(--border-card);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: var(--shadow-card);
+    }
+
+    .panel h2 {
+      margin: 0 0 4px;
+      font-size: 1.25rem;
+      letter-spacing: -0.015em;
+    }
+
+    .panel-desc {
+      margin: 0 0 20px;
+      font-size: 0.875rem;
+      color: var(--ink-secondary);
+    }
+
+    .sub-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--ink-secondary);
+      margin: 0 0 10px;
+      letter-spacing: 0.02em;
+    }
+
+    /* ===== 1. Atmosphere & Material Swatches ===== */
+    .material-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+    }
+
+    .wash-stage {
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      border: 1px solid var(--border-hairline);
+      background:
+        radial-gradient(110% 95% at 10% 0%, var(--wash-start) 0%, transparent 62%),
+        radial-gradient(100% 95% at 92% 18%, var(--wash-mid) 0%, transparent 64%),
+        linear-gradient(180deg, rgba(207, 200, 234, 0.30) 0%, var(--wash-end) 100%);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      min-height: 210px;
+    }
+
+    [data-theme="dark"] .wash-stage {
+      background:
+        radial-gradient(110% 95% at 10% 0%, var(--wash-start) 0%, transparent 64%),
+        radial-gradient(100% 95% at 92% 18%, var(--wash-mid) 0%, transparent 66%),
+        linear-gradient(180deg, rgba(44, 32, 80, 0.55) 0%, var(--wash-end) 100%);
+    }
+
+    .glass-sample {
+      padding: 16px;
+      border-radius: var(--radius-lg);
+      background: var(--surface-glass);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid var(--border-glass);
+      box-shadow: var(--shadow-glass);
+    }
+
+    .surface-stack {
+      display: grid;
+      gap: 10px;
+    }
+
+    .surface-demo {
+      padding: 14px 16px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-hairline);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.875rem;
+    }
+
+    .surface-demo code {
+      font-size: 12px;
+      color: var(--ink-secondary);
+    }
+
+    /* ===== 2. Color Tokens Grid ===== */
+    .token-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(176px, 1fr));
+      gap: 12px;
+    }
+
+    .token-card {
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      background: var(--surface-elevated);
+    }
+
+    .token-swatch {
+      height: 54px;
+      border-bottom: 1px solid var(--border-hairline);
+    }
+
+    .token-info {
+      padding: 10px 12px;
+    }
+
+    .token-title {
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .token-hex {
+      font-size: 11px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      color: var(--ink-secondary);
+      margin-top: 2px;
+    }
+
+    .token-note {
+      font-size: 11px;
+      color: var(--ink-tertiary);
+      margin-top: 3px;
+    }
+
+    /* ===== 3. Typography ===== */
+    .type-row {
+      display: grid;
+      grid-template-columns: 210px 1fr;
+      gap: 16px;
+      align-items: baseline;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border-hairline);
+    }
+
+    @media (max-width: 680px) {
+      .type-row { grid-template-columns: 1fr; gap: 4px; }
+    }
+
+    .type-meta {
+      font-size: 12px;
+      color: var(--ink-secondary);
+    }
+
+    .type-meta code {
+      display: block;
+      font-size: 11px;
+      color: var(--ink-tertiary);
+    }
+
+    /* ===== 4. Atomic Components Grid ===== */
+    .comp-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 18px;
+    }
+
+    .comp-box {
+      padding: 18px;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-hairline);
+      background: var(--canvas);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .cta-primary {
+      min-height: 52px;
+      padding: 12px 22px;
+      border-radius: var(--radius-pill);
+      background: var(--cta-primary-bg);
+      color: var(--cta-primary-fg);
+      font-size: 0.9375rem;
+      font-weight: 600;
+    }
+
+    .cta-primary:hover:not(:disabled) { background: var(--cta-primary-pressed); }
+    .cta-primary:disabled { background: var(--disabled-bg); color: var(--disabled-ink); }
+
+    .cta-pink {
+      min-height: 52px;
+      padding: 12px 22px;
+      border-radius: var(--radius-pill);
+      background: var(--brand-pink);
+      color: var(--on-brand);
+      font-size: 0.9375rem;
+      font-weight: 700;
+    }
+
+    .cta-pink:hover { background: var(--brand-pink-pressed); }
+
+    .cta-outline {
+      min-height: 52px;
+      padding: 12px 22px;
+      border-radius: var(--radius-pill);
+      border: 1.5px solid var(--border-focus);
+      color: var(--ink-primary);
+      font-size: 0.9375rem;
+      font-weight: 600;
+    }
+
+    .cta-outline:hover { background: var(--surface-blush); }
+
+    .iris-link {
+      align-self: flex-start;
+      color: var(--accent-iris);
+      font-size: 0.875rem;
+      font-weight: 600;
+      padding: 4px 2px;
+    }
+
+    /* Floating Search Pill */
+    .search-pill {
+      height: 46px;
+      border-radius: var(--radius-pill);
+      background: var(--surface-elevated);
+      border: 1px solid var(--border-card);
+      box-shadow: var(--shadow-glass);
+      padding: 0 8px 0 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .search-pill:focus-within { border-color: var(--border-focus); }
+
+    .search-pill input {
+      flex: 1;
+      min-width: 0;
+      border: 0;
+      outline: 0;
+      background: transparent;
+      font-size: 0.9375rem;
+    }
+
+    .search-pill input::placeholder { color: var(--ink-tertiary); }
+
+    .icon-btn {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--ink-primary);
+    }
+
+    .icon-btn:hover { background: var(--surface-subtle); }
+
+    /* Filled Input */
+    .field {
+      width: 100%;
+      min-height: 48px;
+      padding: 10px 14px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-control);
+      background: var(--surface-subtle);
+      font-size: 0.9375rem;
+    }
+
+    .field:focus {
+      outline: none;
+      border-color: var(--border-focus);
+      background: var(--canvas);
+    }
+
+    .field.err {
+      border-color: var(--error-fg);
+      background: var(--error-bg);
+    }
+
+    /* Layered Bordered Card Sample */
+    .layered-card {
+      border-radius: var(--radius-lg);
+      background: var(--surface-elevated);
+      border: 1px solid var(--border-card);
+      box-shadow: var(--shadow-card);
+      overflow: hidden;
+    }
+
+    .layered-top {
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .layered-bottom {
+      padding: 10px 16px;
+      border-top: 1px solid var(--border-hairline);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.8125rem;
+    }
+
+    /* Chips, Dropdown & Double-Ring Swatches */
+    .row-wrap { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+
+    .dropdown-pill {
+      min-height: 40px;
+      padding: 8px 14px;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--border-card);
+      background: var(--canvas);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.8125rem;
+      font-weight: 500;
+    }
+
+    .toggle-chip {
+      min-height: 36px;
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--border-card);
+      background: var(--canvas);
+      color: var(--ink-secondary);
+      font-size: 0.8125rem;
+      font-weight: 600;
+    }
+
+    .toggle-chip[aria-pressed="true"] {
+      background: var(--brand-pink);
+      color: var(--on-brand);
+      border-color: transparent;
+    }
+
+    .swatch-dot {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      padding: 3px;
+      border: 2px solid transparent;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .swatch-dot::after { content: ""; position: absolute; inset: -5px; }
+    .swatch-dot[aria-pressed="true"] { border-color: var(--border-focus); }
+
+    .swatch-dot span {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      display: block;
+    }
+
+    .swatch-dot span.ringed { box-shadow: inset 0 0 0 1px var(--border-control); }
+
+    .badge {
+      padding: 4px 10px;
+      border-radius: var(--radius-xs);
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    /* Progress track */
+    .progress-track {
+      height: 3px;
+      border-radius: 99px;
+      background: var(--border-hairline);
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 38%;
+      border-radius: 99px;
+      background: var(--accent-iris);
+    }
+
+    /* Floating Pill Dock Specimen (standalone component) */
+    .dock-stage {
+      padding: 20px 14px;
+      border-radius: var(--radius-lg);
+      background: var(--surface-subtle);
+      display: flex;
+      justify-content: center;
+    }
+
+    .floating-dock {
+      width: min(100%, 350px);
+      height: 62px;
+      padding: 5px;
+      border-radius: var(--radius-dock);
+      background: var(--dock-bg);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--border-hairline);
+      box-shadow: var(--shadow-dock);
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      align-items: center;
+    }
+
+    .dock-tab {
+      height: 50px;
+      border-radius: 26px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2px;
+      color: var(--ink-secondary);
+      font-size: 11px;
+      font-weight: 600;
+      line-height: 1.1;
+    }
+
+    .dock-tab svg { width: 20px; height: 20px; stroke-width: 1.85; }
+
+    .dock-tab[aria-selected="true"] {
+      background: var(--dock-active-pill);
+      color: var(--ink-primary);
+    }
+
+    /* Bottom Sheet Shell Specimen */
+    .sheet-demo-stage {
+      position: relative;
+      height: 196px;
+      border-radius: var(--radius-lg);
+      background: var(--surface-subtle);
+      border: 1px solid var(--border-hairline);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .sheet-scrim {
+      position: absolute;
+      inset: 0;
+      background: var(--scrim);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity var(--ms-sheet) var(--ease-glide);
+    }
+
+    .sheet-scrim.open { opacity: 1; pointer-events: auto; }
+
+    .sheet-shell {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: var(--surface-elevated);
+      border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+      box-shadow: var(--shadow-sheet);
+      padding: 10px 18px 18px;
+      transform: translateY(105%);
+      transition: transform var(--ms-sheet) var(--ease-glide);
+    }
+
+    .sheet-shell.open { transform: translateY(0); }
+
+    .grabber {
+      width: 38px;
+      height: 4px;
+      border-radius: 99px;
+      background: var(--border-control);
+      margin: 0 auto 12px;
+    }
+
+    /* Radius & Elevation */
+    .scale-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 12px;
+    }
+
+    .scale-box {
+      padding: 14px;
+      background: var(--surface-elevated);
+      border: 1px solid var(--border-card);
+      font-size: 12px;
+      color: var(--ink-secondary);
+    }
+
+    .scale-box strong {
+      display: block;
+      color: var(--ink-primary);
+      margin-bottom: 3px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+      }
+      button:active:not(:disabled) { transform: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand-row">
+        <span class="brand-mark">芙洛拉 Flora</span>
+        <span class="brand-sub">设计系统元件样张板 v2.2 · 纯视觉与原子控件校验</span>
+      </div>
+      <div class="toolbar">
+        <button type="button" class="tool-btn" id="themeBtn" aria-pressed="false">深色模式</button>
+        <button type="button" class="tool-btn" id="largeBtn" aria-pressed="false">大字 125%</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="intro">
+      <h1>芙洛拉设计系统样张板</h1>
+      <p>本页仅用于核对 <code>DESIGN.md</code> 与 <code>tokens.json</code> 的视觉气质、色板、字号、材质和单个原子控件状态，不包含任何具体业务页面布局。确认这套语言后，可将 <code>DESIGN.md</code> 直接导入 Claude Design / Open Design 逐页设计。</p>
+    </div>
+
+    <!-- 1. Atmosphere & Surfaces -->
+    <section class="panel">
+      <h2>1. 视觉气质、四季顶部光晕与表面材质</h2>
+      <p class="panel-desc">纯白画廊底 + 中性图底护色 + 顶部淡雾光晕支持按花季仅替换 2 个 Token（默认春季粉紫），毛玻璃浮卡自动透出当季色调。</p>
+      <div class="row-wrap" style="margin-bottom:14px" role="group" aria-label="四季顶部光晕预览" id="seasonBar">
+        <button type="button" class="toggle-chip" data-season="spring" aria-pressed="true">春 · 樱雾粉紫（默认）</button>
+        <button type="button" class="toggle-chip" data-season="summer" aria-pressed="false">夏 · 晴空薄荷</button>
+        <button type="button" class="toggle-chip" data-season="autumn" aria-pressed="false">秋 · 桂影暖杏</button>
+        <button type="button" class="toggle-chip" data-season="winter" aria-pressed="false">冬 · 初雪冷莓</button>
+      </div>
+      <div class="material-grid">
+        <div class="wash-stage">
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap">
+            <span class="brand-mark" style="font-size:13px;padding:4px 12px">芙洛拉</span>
+            <span id="seasonBadge" style="font-size:12px;color:var(--ink-secondary)">春 · 樱雾粉紫 · #CFC8EA → #F3C8DC</span>
+          </div>
+          <div class="glass-sample">
+            <div style="font-size:12px;color:var(--ink-secondary)">surface-glass · blur(18px)</div>
+            <div style="font-size:17px;font-weight:700;margin:4px 0">半透明毛玻璃浮卡材质</div>
+            <div style="font-size:12px;color:var(--success-fg);font-weight:600">仅用于顶部光晕区域，边缘配高光细线，随季节轻透底色</div>
+          </div>
+        </div>
+
+        <div class="surface-stack">
+          <div class="surface-demo" style="background:var(--canvas)">
+            <strong>纯白主画布</strong><code>canvas</code>
+          </div>
+          <div class="surface-demo" style="background:var(--surface-subtle)">
+            <strong>中性图片容器底（防花色串色）</strong><code>surface-subtle</code>
+          </div>
+          <div class="surface-demo" style="background:var(--surface-blush)">
+            <strong>柔粉分组底</strong><code>surface-blush</code>
+          </div>
+          <div class="surface-demo" style="background:var(--surface-dark);color:#FFFFFF;border-color:transparent">
+            <strong>深紫墨黑结构锚点</strong><code style="color:var(--brand-pink)">surface-dark</code>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Semantic Color Palette -->
+    <section class="panel">
+      <h2>2. 语义色彩系统（浅 / 深双主题实时切换）</h2>
+      <p class="panel-desc">全部文字与状态配对均已通过 WCAG AA/AAA 对比度校验；浅色下柔粉 <code>#FFB3C7</code> 仅作大块填充并配墨字。</p>
+      <div class="token-grid" id="tokenGrid"></div>
+    </section>
+
+    <!-- 3. Typography -->
+    <section class="panel">
+      <h2>3. 中文字号与等宽数字阶梯</h2>
+      <p class="panel-desc">系统无衬线字体栈；所有金额与数字开启 <code>tabular-nums</code> 纵向对齐。</p>
+      <div id="typeList"></div>
+    </section>
+
+    <!-- 4. Atomic Components -->
+    <section class="panel">
+      <h2>4. 通用原子控件样式与状态</h2>
+      <p class="panel-desc">仅定义单个控件的视觉与交互反馈（160ms 按压、280ms 切换、340ms 弹层），具体页面按需组合。</p>
+      <div class="comp-grid">
+        <!-- Buttons -->
+        <div class="comp-box">
+          <p class="sub-label">四级按钮与状态（点击主钮可测加载禁用态）</p>
+          <button type="button" class="cta-primary" id="demoLoadBtn">主行动按钮（52px 全圆角）</button>
+          <button type="button" class="cta-pink">芙洛拉柔粉强调按钮（必配墨字）</button>
+          <button type="button" class="cta-outline">描边次按钮（1.5px 描边）</button>
+          <button type="button" class="cta-primary" disabled>禁用状态按钮</button>
+          <button type="button" class="iris-link">鸢尾紫轻链接 →</button>
+        </div>
+
+        <!-- Inputs -->
+        <div class="comp-box">
+          <p class="sub-label">悬浮搜索胶囊与表单输入框</p>
+          <div class="search-pill">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+            <input type="search" id="demoSearch" placeholder="悬浮搜索胶囊（输入后可测清除）" aria-label="示例搜索框">
+            <button type="button" class="icon-btn hidden" id="demoClear" aria-label="清除输入">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+            </button>
+          </div>
+          <input class="field" placeholder="中性填充输入框（圆角 16px，聚焦切墨黑环）" aria-label="常规输入框示例">
+          <input class="field err" value="示例错误内容" aria-label="错误输入框示例">
+          <span style="font-size:12px;color:var(--error-fg)">错误提示紧贴输入框，并说明可操作的补救动作。</span>
+        </div>
+
+        <!-- Cards & Badges -->
+        <div class="comp-box">
+          <p class="sub-label">轻边分层卡片 &amp; 语义状态胶囊</p>
+          <div class="layered-card">
+            <div class="layered-top">
+              <div>
+                <div style="font-size:15px;font-weight:600">轻边内容卡片主体</div>
+                <div style="font-size:12px;color:var(--ink-secondary)">1px 暖灰轻边 + 极淡紫调投影</div>
+              </div>
+              <strong class="tabular" style="font-size:16px">¥268</strong>
+            </div>
+            <div class="layered-bottom">
+              <span style="color:var(--success-fg);font-weight:600">底部分隔区正向说明</span>
+              <span class="badge" style="background:var(--highlight-bg);color:var(--highlight-fg)">优选高亮</span>
+            </div>
+          </div>
+          <div class="row-wrap">
+            <span class="badge" style="background:var(--highlight-bg);color:var(--highlight-fg)">浅草绿高亮</span>
+            <span class="badge" style="background:var(--success-bg);color:var(--success-fg)">正向绿</span>
+            <span class="badge" style="background:var(--accent-iris-soft);color:var(--accent-iris)">鸢尾紫</span>
+            <span class="badge" style="background:var(--warning-bg);color:var(--warning-fg)">待确认</span>
+            <span class="badge" style="background:var(--error-bg);color:var(--error-fg)">错误态</span>
+            <span class="badge" style="background:var(--disabled-bg);color:var(--disabled-ink)">禁用/不可用</span>
+          </div>
+        </div>
+
+        <!-- Selection controls -->
+        <div class="comp-box">
+          <p class="sub-label">选择器（下拉胶囊、轻胶囊、双环色点、极细进度条）</p>
+          <div class="row-wrap">
+            <button type="button" class="dropdown-pill">
+              <span>下拉筛选胶囊</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <button type="button" class="toggle-chip" aria-pressed="true" data-chip>选中胶囊</button>
+            <button type="button" class="toggle-chip" aria-pressed="false" data-chip>未选胶囊</button>
+          </div>
+          <div class="row-wrap" id="demoSwatches" role="group" aria-label="双环色点样式示例"></div>
+          <div style="font-size:12px;color:var(--ink-secondary)" id="swatchStatus">色点选中呈「留白内缝 + 外环」，须同时展示中文名称。</div>
+          <div class="progress-track" aria-hidden="true"><div class="progress-fill"></div></div>
+        </div>
+
+        <!-- Floating Dock Chrome -->
+        <div class="comp-box">
+          <p class="sub-label">悬浮毛玻璃五项底栏控件（可点击切激活内胶囊）</p>
+          <div class="dock-stage">
+            <nav class="floating-dock" aria-label="底部导航控件样本" id="demoDock">
+              <button type="button" class="dock-tab" role="tab" aria-selected="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4.5c2 2.4 2 5 0 7.5-2-2.5-2-5.1 0-7.5Z"/><path d="M19.5 12c-2.4 2-5 2-7.5 0 2.5-2 5.1-2 7.5 0Z"/><path d="M12 19.5c-2-2.4-2-5 0-7.5 2 2.5 2 5.1 0 7.5Z"/><path d="M4.5 12c2.4-2 5-2 7.5 0-2.5 2-5.1 2-7.5 0Z"/></svg>
+                <span>逛花</span>
+              </button>
+              <button type="button" class="dock-tab" role="tab" aria-selected="false">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10.5 5.6 5h12.8L20 10.5"/><path d="M4 10.5a3 3 0 0 0 6 0 3 3 0 0 0 4 0 3 3 0 0 0 6 0"/><path d="M6 13.5V19h12v-5.5"/></svg>
+                <span>花店</span>
+              </button>
+              <button type="button" class="dock-tab" role="tab" aria-selected="false">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><circle cx="9.5" cy="10" r="1" fill="currentColor"/><circle cx="14.5" cy="10" r="1" fill="currentColor"/><circle cx="12" cy="14.5" r="1" fill="currentColor"/></svg>
+                <span>挑花</span>
+              </button>
+              <button type="button" class="dock-tab" role="tab" aria-selected="false">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20 11.5a7.5 7.5 0 0 1-11.2 6.5L4 19l1.2-4.4A7.5 7.5 0 1 1 20 11.5Z"/></svg>
+                <span>消息</span>
+              </button>
+              <button type="button" class="dock-tab" role="tab" aria-selected="false">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8.5" r="3.5"/><path d="M5.5 19a6.5 6.5 0 0 1 13 0"/></svg>
+                <span>我的</span>
+              </button>
+            </nav>
+          </div>
+          <span style="font-size:12px;color:var(--ink-tertiary)">高度 62px · 外圆角 32px · 窄屏 375px 五项均分不换行</span>
+        </div>
+
+        <!-- Bottom Sheet Shell -->
+        <div class="comp-box">
+          <p class="sub-label">底部弹层外壳（24px 上圆角 · 340ms 滑行）</p>
+          <div class="sheet-demo-stage">
+            <button type="button" class="dropdown-pill" id="openSheetDemo">点击预览弹层滑入</button>
+            <div class="sheet-scrim" id="demoScrim"></div>
+            <div class="sheet-shell" id="demoSheet">
+              <div class="grabber"></div>
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+                <strong style="font-size:15px">底部弹层容器外壳</strong>
+                <button type="button" class="iris-link" id="closeSheetDemo">收起</button>
+              </div>
+              <div style="font-size:12px;color:var(--ink-secondary)">上圆角 24px、顶部 38×4 拖拽条、配合 scrim 遮罩与 340ms 顺滑缓动。</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Radius & Elevation -->
+    <section class="panel">
+      <h2>5. 圆角与阴影层级</h2>
+      <p class="panel-desc">偏柔和的大圆角比例，配合带极淡冷紫基调的低透明度阴影。</p>
+      <div class="scale-grid">
+        <div class="scale-box" style="border-radius:8px"><strong>xs · 8px</strong>小状态徽标</div>
+        <div class="scale-box" style="border-radius:12px"><strong>sm · 12px</strong>商标 / 品牌标</div>
+        <div class="scale-box" style="border-radius:16px"><strong>md · 16px</strong>输入框 / 图块</div>
+        <div class="scale-box" style="border-radius:20px;box-shadow:var(--shadow-card)"><strong>lg · 20px / Card</strong>内容卡片</div>
+        <div class="scale-box" style="border-radius:24px;box-shadow:var(--shadow-glass)"><strong>xl · 24px / Glass</strong>弹层 / 毛玻璃</div>
+        <div class="scale-box" style="border-radius:32px;box-shadow:var(--shadow-dock)"><strong>dock · 32px</strong>悬浮胶囊底栏</div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const $ = id => document.getElementById(id);
+
+    const TOKENS_LIST = [
+      { title: '主画布', v: '--canvas', note: '页面底色' },
+      { title: '中性图底', v: '--surface-subtle', note: '照片容器 / 输入框底' },
+      { title: '柔粉分组底', v: '--surface-blush', note: '轻强调背景' },
+      { title: '深色锚点', v: '--surface-dark', note: '深色卡片 / 轻提示条' },
+      { title: '主文字', v: '--ink-primary', note: '标题与核心结构' },
+      { title: '次文字', v: '--ink-secondary', note: '副标与辅助信息' },
+      { title: '弱文字', v: '--ink-tertiary', note: '占位符与图注' },
+      { title: '主行动按钮', v: '--cta-primary-bg', note: '浅色墨黑 / 深色柔粉' },
+      { title: '芙洛拉柔粉', v: '--brand-pink', note: '品牌标与高亮（配墨字）' },
+      { title: '鸢尾紫点缀', v: '--accent-iris', note: '轻链接 / 进度条' },
+      { title: '细分割线', v: '--border-hairline', note: '列表与卡片内分割' },
+      { title: '卡片轻边', v: '--border-card', note: '静息卡片与下拉边' },
+      { title: '浅草绿高亮', v: '--highlight-bg', note: '优选状态胶囊底' },
+      { title: '正向绿', v: '--success-fg', note: '可服务 / 正向反馈' },
+      { title: '待确认琥珀', v: '--warning-fg', note: '待确认提醒' },
+      { title: '错误红', v: '--error-fg', note: '失败与表单报错' }
+    ];
+
+    const TYPE_LIST = [
+      { role: '页面大标题', meta: '26 / 34 · 700', size: '1.625rem', lh: 1.31, w: 700, text: '中文页面大标题样张' },
+      { role: '重点金额', meta: '24 / 30 · 700 · tabular', size: '1.5rem', lh: 1.25, w: 700, text: '¥268.00', tabular: true },
+      { role: '分组标题', meta: '20 / 28 · 700', size: '1.25rem', lh: 1.4, w: 700, text: '二级分组标题样张' },
+      { role: '次级标题', meta: '17 / 24 · 600', size: '1.0625rem', lh: 1.41, w: 600, text: '卡片或主体次级标题' },
+      { role: '条目主标题', meta: '16 / 23 · 600', size: '1rem', lh: 1.44, w: 600, text: '列表或作品主标题' },
+      { role: '列表金额', meta: '16 / 22 · 700 · tabular', size: '1rem', lh: 1.38, w: 700, text: '¥198  ¥268  ¥328', tabular: true },
+      { role: '按钮文字', meta: '15 / 20 · 600', size: '0.9375rem', lh: 1.33, w: 600, text: '主要行动按钮' },
+      { role: '正文', meta: '15 / 23 · 400', size: '0.9375rem', lh: 1.53, w: 400, text: '像懂花的朋友一样说话，正文行高舒展易读。' },
+      { role: '辅助信息', meta: '13 / 19 · 400', size: '0.8125rem', lh: 1.46, w: 400, text: '辅助说明、距离与时间元数据' },
+      { role: '标签 / 徽章', meta: '12 / 16 · 600', size: '0.75rem', lh: 1.33, w: 600, text: '状态标签 · 胶囊文字' },
+      { role: '导航标签', meta: '11 / 14 · 600', size: '0.6875rem', lh: 1.27, w: 600, text: '逛花 ｜ 花店 ｜ 挑花 ｜ 消息 ｜ 我的' },
+      { role: '图注 / 补充说明', meta: '11 / 16 · 400', size: '0.6875rem', lh: 1.45, w: 400, text: '图注、参考说明与免责小字' }
+    ];
+
+    const DEMO_SWATCHES = [
+      { label: '深紫墨', hex: '#0B051D', ringed: false },
+      { label: '芙洛拉粉', hex: '#FFB3C7', ringed: false },
+      { label: '纯白', hex: '#FFFFFF', ringed: true },
+      { label: '浅草绿', hex: '#DAF79A', ringed: false },
+      { label: '鸢尾紫', hex: '#5B3FD9', ringed: false }
+    ];
+
+    function renderTokens() {
+      const cs = getComputedStyle(document.documentElement);
+      $('tokenGrid').innerHTML = TOKENS_LIST.map(t => {
+        const val = cs.getPropertyValue(t.v).trim();
+        return `
+          <div class="token-card">
+            <div class="token-swatch" style="background:var(${t.v})"></div>
+            <div class="token-info">
+              <div class="token-title">${t.title}</div>
+              <div class="token-hex">${t.v.slice(2)} · ${val}</div>
+              <div class="token-note">${t.note}</div>
+            </div>
+          </div>`;
+      }).join('');
+    }
+
+    function renderType() {
+      $('typeList').innerHTML = TYPE_LIST.map(t => `
+        <div class="type-row">
+          <div class="type-meta"><strong>${t.role}</strong><code>${t.meta}</code></div>
+          <div class="${t.tabular ? 'tabular' : ''}" style="font-size:${t.size};line-height:${t.lh};font-weight:${t.w}">${t.text}</div>
+        </div>`).join('');
+    }
+
+    // Swatch sample
+    let activeSwatch = 0;
+    function renderSwatches() {
+      $('demoSwatches').innerHTML = '';
+      DEMO_SWATCHES.forEach((s, i) => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'swatch-dot';
+        btn.setAttribute('aria-pressed', String(i === activeSwatch));
+        btn.setAttribute('aria-label', s.label);
+        btn.innerHTML = `<span class="${s.ringed ? 'ringed' : ''}" style="background:${s.hex}"></span>`;
+        btn.onclick = () => {
+          activeSwatch = i;
+          renderSwatches();
+          $('swatchStatus').textContent = `当前选中：${s.label}（${s.hex}）`;
+        };
+        $('demoSwatches').appendChild(btn);
+      });
+    }
+
+    const SEASONS = {
+      spring: { label: '春 · 樱雾粉紫', light: ['#CFC8EA', '#F3C8DC', '#FFFFFF'], dark: ['#2C2050', '#45213D', '#0B051D'] },
+      summer: { label: '夏 · 晴空薄荷', light: ['#C8E4EC', '#D4ECDD', '#FFFFFF'], dark: ['#193245', '#1B3A32', '#0B051D'] },
+      autumn: { label: '秋 · 桂影暖杏', light: ['#F3D5B8', '#F2D0D6', '#FFFFFF'], dark: ['#462E20', '#452531', '#0B051D'] },
+      winter: { label: '冬 · 初雪冷莓', light: ['#D5DCEF', '#E7D4E8', '#FFFFFF'], dark: ['#212946', '#372342', '#0B051D'] }
+    };
+    let currentSeason = 'spring';
+
+    function applySeason() {
+      const mode = document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light';
+      const s = SEASONS[currentSeason];
+      const [start, mid, end] = s[mode];
+      document.documentElement.style.setProperty('--wash-start', start);
+      document.documentElement.style.setProperty('--wash-mid', mid);
+      document.documentElement.style.setProperty('--wash-end', end);
+      $('seasonBadge').textContent = `${s.label} · ${start} → ${mid}`;
+    }
+
+    $('seasonBar').querySelectorAll('[data-season]').forEach(btn => {
+      btn.onclick = () => {
+        currentSeason = btn.dataset.season;
+        $('seasonBar').querySelectorAll('[data-season]').forEach(b => b.setAttribute('aria-pressed', String(b === btn)));
+        applySeason();
+      };
+    });
+
+    // Top controls
+    $('themeBtn').onclick = e => {
+      const dark = e.currentTarget.getAttribute('aria-pressed') !== 'true';
+      e.currentTarget.setAttribute('aria-pressed', String(dark));
+      document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+      applySeason();
+      renderTokens();
+    };
+
+    $('largeBtn').onclick = e => {
+      const large = e.currentTarget.getAttribute('aria-pressed') !== 'true';
+      e.currentTarget.setAttribute('aria-pressed', String(large));
+      document.documentElement.classList.toggle('large-type', large);
+    };
+
+    // Button loading demo
+    $('demoLoadBtn').onclick = async e => {
+      const btn = e.currentTarget;
+      btn.disabled = true;
+      btn.textContent = '正在发送…（禁用态）';
+      await new Promise(r => setTimeout(r, 700));
+      btn.disabled = false;
+      btn.textContent = '主行动按钮（52px 全圆角）';
+    };
+
+    // Search clear focus demo
+    $('demoSearch').oninput = e => {
+      $('demoClear').classList.toggle('hidden', e.target.value.length === 0);
+    };
+    $('demoClear').onclick = () => {
+      $('demoSearch').value = '';
+      $('demoClear').classList.add('hidden');
+      $('demoSearch').focus();
+    };
+
+    // Chips
+    document.querySelectorAll('[data-chip]').forEach(chip => {
+      chip.onclick = () => {
+        const on = chip.getAttribute('aria-pressed') !== 'true';
+        chip.setAttribute('aria-pressed', String(on));
+      };
+    });
+
+    // Floating dock tabs
+    $('demoDock').querySelectorAll('.dock-tab').forEach(tab => {
+      tab.onclick = () => {
+        $('demoDock').querySelectorAll('.dock-tab').forEach(t => t.setAttribute('aria-selected', String(t === tab)));
+      };
+    });
+
+    // Bottom sheet shell demo
+    const toggleSheet = open => {
+      $('demoScrim').classList.toggle('open', open);
+      $('demoSheet').classList.toggle('open', open);
+    };
+    $('openSheetDemo').onclick = () => toggleSheet(true);
+    $('closeSheetDemo').onclick = () => toggleSheet(false);
+    $('demoScrim').onclick = () => toggleSheet(false);
+
+    applySeason();
+    renderTokens();
+    renderType();
+    renderSwatches();
+  </script>
+</body>
+</html>
